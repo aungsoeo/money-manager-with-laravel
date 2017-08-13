@@ -61,9 +61,7 @@
                 </div>
               </div>
 
-              <footer id="fh5co-footer">
-                <p><small>&copy; 2017. All Rights Reserverd. <br> Designed by <a href="#" target="_blank">ေအာင္စိုးဦး</a>  Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small></p>
-              </footer>
+              @include('layouts.footer')
             </div>
         </div>
     </div>

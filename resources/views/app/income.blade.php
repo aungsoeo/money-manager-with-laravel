@@ -15,22 +15,23 @@
             <div class="panel panel-default">
               <!-- END #fh5co-offcanvas -->
               <header id="fh5co-header">
-
                 <div class="container-fluid">
-
                   <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">
                       <h1 id="fh5co-logo"><a href="index.html"><sup>$$</sup>ဝင္ေငြစာရင္းၾကည့္မယ္<sup>$$</sup></a></h1>
                     </div>
-
                   </div>
-
                 </div>
-
               </header>
               <!-- END #fh5co-header -->
+
               <div class="container-fluid">
-                <div class="row fh5co-post-entry">
+                <div >
+                  <button type="button" name="button" class="btn btn-success">စာရင္းအသစ္ထည့္မယ္</button>
+                </div><br>
+                  <div class="clearfix visible-xs-block"></div>
+
+
                   <table class="table table-bordered">
                     <thead >
                       <tr>
@@ -44,7 +45,7 @@
                       @foreach($incomes as $income)
                       <tr>
                         <th scope="row">{{$income->id}}</th>
-                        <td>{{ Carbon\Carbon::parse($income->created_at)->format('d-m-Y ') }}</td>
+                        <td>{{ Carbon\Carbon::parse($income->created_at)->format('d-m-Y') }}</td>
                         <td>{{$income->income_name}}</td>
                         <td>{{$income->amount}}(က်ပ္)</td>
                       </tr>
@@ -57,19 +58,13 @@
                       </tr>
                     </tbody>
                   </table>
-
-                        <div class="clearfix visible-xs-block"></div>
-
-
-                  <div class="clearfix visible-xs-block"></div>
-                  <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
-
+                  <div >
+                    <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">ေနာက္သို့</button></a>
+                  </div><br>
                 </div>
               </div>
-
-              <footer id="fh5co-footer">
-                <p><small>&copy; 2017. All Rights Reserverd. <br> Designed by <a href="#" target="_blank">ေအာင္စိုးဦး</a>  Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small></p>
-              </footer>
+              @include('layouts.footer')
+              
             </div>
         </div>
     </div>
