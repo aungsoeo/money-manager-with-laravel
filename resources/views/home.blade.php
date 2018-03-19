@@ -11,7 +11,7 @@
 
                   <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">
-                      <h1 id="fh5co-logo"><a href="index.html"><sup>$$</sup>ဝင္ေငြထြက္ေငြ ဆန္းစစ္မယ္ <sup>$$</sup></a></h1>
+                      <h1 id="fh5co-logo"><a href="{{ url('/home') }}"><sup>$$</sup>ဝင္ေငြထြက္ေငြ ဆန္းစစ္မယ္ <sup>$$</sup></a></h1>
                     </div>
 
                   </div>
@@ -27,7 +27,7 @@
                     <figure>
                       <a href="{{ url('/income') }}"><img src="images/income.gif" style="width:500px; width:500px; !important" alt="Image" class="img-responsive"></a>
                     </figure>
-                    <span class="fh5co-meta"><a href="{{ url('/income') }}">တစ္လဝင္ေငြ</a></span>
+                    <span class="fh5co-meta"><a href="{{ url('/income') }}">ဝင္ေငြ</a></span>
                   </article>
                         <div class="clearfix visible-xs-block"></div>
                   <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">

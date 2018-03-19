@@ -15,8 +15,14 @@ class CreateIncomeTable extends Migration
     {
         Schema::create('income', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->string('income_name');
+            $table->smallInteger('amount');
             $table->timestamps();
         });
+         Schema::table('income', function($table) {
+       $table->foreign('user_id')->references('id')->on('users');
+   });
     }
 
     /**
