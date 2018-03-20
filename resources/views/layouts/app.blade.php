@@ -9,9 +9,27 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Money Manager</title>
-
+	<link rel="shortcut icon" href="favicon.ico">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Animate -->
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <!-- Icomoon -->
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+    <!-- add js file from file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
     <div id="app">
@@ -31,7 +49,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                       <img src="images/home.jpg" alt="home" width="50px" height="50px">
                     </a>
-                    <a href="#" class="navbar-brand" > <strong>မဂၤလာပါ မိတ္ေဆြ...............................</strong></a>
+                    <a href="#" class="navbar-brand" > <strong>မဂၤလာပါ မိတ္ေဆြ</strong></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -67,6 +85,7 @@
                                     </li>
                                 </ul>
                             </li>
+
                         @endif
                     </ul>
                 </div>
@@ -78,5 +97,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
+    <!-- jQuery -->
+  	<script src="{{asset('js/jquery.min.js')}}"></script>
+  	<!-- jQuery Easing -->
+  	<script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
+  	<!-- Bootstrap -->
+  	<script src="{{asset('js/bootstrap.min.js')}}"></script>
+  	<!-- Waypoints -->
+  	<script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
+  	<!-- Main JS -->
+  	<script src="{{asset('js/main.js')}}"></script>
+
 </body>
 </html>
