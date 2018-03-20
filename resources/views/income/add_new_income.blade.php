@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Add new income page!</title>
-</head>
-<body>
 	<div class="container">
       <div class="row">
           <div class="col-md-offset-1">
@@ -42,7 +35,7 @@
                         @endif
                       </div>
 
-										  <form class="form-horizontal" action="{{url('/addincome')}}" style="margin-left: 100px;" method="post">
+										  <form id="income-form" class="form-horizontal " action="{{url('/addincome')}}" style="margin-left: 100px;" method="post">
                         {!! csrf_field() !!}
 
 										    <div class="form-group">
@@ -56,7 +49,13 @@
 										      <div class="col-sm-10">
 										        <input type="number" class="form-control" id="amount" placeholder="Enter Amount" name="amount" style="width: 500px;">
 										      </div>
-										    </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="date" class="control-label col-sm-2">Date:</label>
+                          <div class="col-sm-10">
+                            <input type="text" id="date" class="form-control"  name="date" placeholder="DD/MM/YY" style="width: 500px;" />
+                          </div>
+                        </div>
 										     <div class="form-group">
 										      <div class="col-sm-offset-2 col-sm-10">
 										        <button type="submit" class="btn btn-success" >Submit</button>
@@ -72,7 +71,12 @@
           </div>
       </div>
   </div>
-</body>
+  <input class="date form-control" type="text">
+<script type="text/javascript">
+    $('.date').datepicker({  
+       format: 'mm-dd-yyyy'
+     });  
+</script>  
 @include('layouts.footer')
-</html>
+
 @endsection

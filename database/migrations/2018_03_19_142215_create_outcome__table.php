@@ -18,6 +18,7 @@ class CreateOutcomeTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('outcome_name');
             $table->integer('amount');
+            $table->date('outcome_date');
             $table->timestamps();
         });
         Schema::table('outcome', function($table) {

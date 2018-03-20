@@ -6,28 +6,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>တစ္လဝင္ေငြၾကည့္မယ္</title>
+    <title>ထြက္ေငြစာရင္</title>
   </head>
 
-  <div class="container">
-      <div class="row">
-          <div class="col-md-offset-1">
-              <div class="panel panel-default">
-                <!-- END #fh5co-offcanvas -->
-                <header id="fh5co-header">
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12 text-center">
-                        <h1 id="fh5co-logo"><a href="index.html"><sup>$$</sup>ဝင္ေငြစာရင္းၾကည့္မယ္<sup>$$</sup></a></h1>
-                      </div>
-                    </div>
-                  </div>
-                </header>
-                <!-- END #fh5co-header -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1">
+            <div class="panel panel-default">
+              <!-- END #fh5co-offcanvas -->
+              <header id="fh5co-header">
 
                 <div class="container-fluid">
+
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 text-center">
+                      <h1 id="fh5co-logo"><a href="{{ url('/home') }}"><sup>$$</sup>စုေငြစာရင္းၾကည့္မယ္<sup>$$</sup></a></h1>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </header>
+              <!-- END #fh5co-header -->
+              <div class="container-fluid">
                   <div >
-                      <a href="{{ url('/addincome')}}">
+                      <a href="{{ url('/outcome/create')}}">
                         <button type="button" name="button" class="btn btn-success">စာရင္းအသစ္ထည့္မယ္</button>
                       </a>
                   </div><br>
@@ -44,21 +48,21 @@
                         <tr>
                           <th>စဥ္</th>
                           <th>ေန့စြဲ</th>
-                          <th>ဝင္ေငြ အမည္</th>
+                          <th>စုေငြ အမည္</th>
                           <th>ပမာဏ</th>
                           <th style="width:240px;">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($incomes as $income)
+                        @foreach($saves as $save)
                         <tr>
-                          <th scope="row">{{$income->id}}</th>
-                          <td>{{ Carbon\Carbon::parse($income->created_at)->format('d-m-Y') }}</td>
-                          <td>{{$income->income_name}}</td>
-                          <td>{{number_format($income->amount)}}(က်ပ္)</td>
+                          <th scope="row">{{$save->id}}</th>
+                          <td>{{ Carbon\Carbon::parse($save->created_at)->format('d-m-Y') }}</td>
+                          <td>{{$save->save_name}}</td>
+                          <td>{{number_format($save->amount)}}(က်ပ္)</td>
                           <td>
-                            <a href="{{ route('income.delete', $income->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
-                            <a href="{{ route('income.edit', $income->id) }}">
+                             <a href="{{ route('save.delete', $save->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                            <a href="{{ route('save.edit', $save->id) }}">
                               <button type="button" name="button" class="btn btn-small btn-info">Edit</button>
                             </a>
 
@@ -71,9 +75,9 @@
                           <td colspan="1"><b>စုစုေပါင္း</b></td>
                           <td><?php
                                   $total=0;
-                                foreach ($incomes as $income) {
+                                foreach ($saves as $save) {
 
-                                    $amount = $income->amount;
+                                    $amount = $outcome->amount;
                                     $total = $total + $amount;
                                 }
                                 echo $total;
@@ -87,16 +91,16 @@
                   </div>
                 </div>
                 @include('layouts.footer')
-
-              </div>
-          </div>
-      </div>
-  </div>
-
-@endsection
+              
+            </div>
+        </div>
+    </div>
+</div>
 <script>
 setTimeout(() => {
   $('.success-msg').hide();
 }, 5000);
   
 </script>
+
+@endsection

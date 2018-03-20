@@ -37,7 +37,7 @@
                   </div><br>
                     <div class="clearfix visible-xs-block"></div>
                     @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success success-msg">
                         <p>{{ $message }}</p>
                     </div>
                     @endif
@@ -96,6 +96,11 @@
         </div>
     </div>
 </div>
-
+<script>
+setTimeout(() => {
+  $('.success-msg').hide();
+}, 5000);
+  
+</script>
 
 @endsection

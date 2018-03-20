@@ -28,10 +28,16 @@ Route::resource('/outcome','OutcomeController');
 Route::get('/outcome/delete/{id}', 'OutcomeController@destroy')->name('outcome.delete');
 
 
-Route::get('/save', function () {
-    return view('app.save');
+Route::get('/save','SaveController@index')->name('save.index');
+Route::get('/save/add','SaveController@create')->name('save.create');
+Route::post('/save','SaveController@store')->name('save.save');
+Route::get('/save/{id}/edit','SaveController@edit')->name('save.edit');
+Route::put('/save/{id}','SaveController@update')->name('save.update');
+Route::delete('/save','SaveController@destory')->name('save.destory');
 
-});Route::get('/total', function () {
+
+
+Route::get('/total', function () {
     return view('app.total');
 });
 
