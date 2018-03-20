@@ -35,7 +35,7 @@
                         @endif
                       </div>
 
-										  <form id="income-form" class="form-horizontal " action="{{url('/addincome')}}" style="margin-left: 100px;" method="post">
+										  <form id="income_form" class="form-horizontal " action="{{url('/addincome')}}" style="margin-left: 100px;" method="post">
                         {!! csrf_field() !!}
 
 										    <div class="form-group">
@@ -53,7 +53,7 @@
                         <div class="form-group">
                           <label for="date" class="control-label col-sm-2">Date:</label>
                           <div class="col-sm-10">
-                            <input type="text" id="date" class="form-control"  name="date" placeholder="DD/MM/YY" style="width: 500px;" />
+                            <input type="date" id="date" class="form-control income_date"  name="date" placeholder="DD/MM/YY" style="width: 500px;" />
                           </div>
                         </div>
 										     <div class="form-group">
@@ -71,7 +71,6 @@
           </div>
       </div>
   </div>
-  <input class="date form-control" type="text">
 <script type="text/javascript">
     $('.date').datepicker({  
        format: 'mm-dd-yyyy'
