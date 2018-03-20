@@ -31,7 +31,7 @@
               <!-- END #fh5co-header -->
               <div class="container-fluid">
                   <div >
-                      <a href="{{ url('/outcome/create')}}">
+                      <a href="{{ url('/save/create')}}">
                         <button type="button" name="button" class="btn btn-success">စာရင္းအသစ္ထည့္မယ္</button>
                       </a>
                   </div><br>
@@ -57,7 +57,7 @@
                         @foreach($saves as $save)
                         <tr>
                           <th scope="row">{{$save->id}}</th>
-                          <td>{{ Carbon\Carbon::parse($save->created_at)->format('d-m-Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($save->save_date)->format('d-m-Y') }}</td>
                           <td>{{$save->save_name}}</td>
                           <td>{{number_format($save->amount)}}(က်ပ္)</td>
                           <td>
@@ -77,10 +77,10 @@
                                   $total=0;
                                 foreach ($saves as $save) {
 
-                                    $amount = $outcome->amount;
+                                    $amount = $save->amount;
                                     $total = $total + $amount;
                                 }
-                                echo $total;
+                                echo number_format($total);
                               ?>(က်ပ္)</td>
                         </tr>
                       </tbody>

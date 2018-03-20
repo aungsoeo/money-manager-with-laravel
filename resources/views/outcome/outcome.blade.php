@@ -57,7 +57,7 @@
                         @foreach($outcomes as $outcome)
                         <tr>
                           <th scope="row">{{$outcome->id}}</th>
-                          <td>{{ Carbon\Carbon::parse($outcome->created_at)->format('d-m-Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($outcome->outcome_date)->format('d-m-Y') }}</td>
                           <td>{{$outcome->outcome_name}}</td>
                           <td>{{number_format($outcome->amount)}}(က်ပ္)</td>
                           <td>
@@ -80,7 +80,7 @@
                                     $amount = $outcome->amount;
                                     $total = $total + $amount;
                                 }
-                                echo $total;
+                                echo number_format($total);
                               ?>(က်ပ္)</td>
                         </tr>
                       </tbody>

@@ -57,6 +57,12 @@
 										        <input type="number" class="form-control" id="amount" placeholder="Enter Amount" name="amount" style="width: 500px;">
 										      </div>
 										    </div>
+                        <div class="form-group">
+                          <label for="date" class="control-label col-sm-2">Date:</label>
+                          <div class="col-sm-10">
+                            <input type="date" id="date" class="form-control"  name="date" placeholder="DD/MM/YY" style="width: 500px;" />
+                          </div>
+                        </div>
 										     <div class="form-group">
 										      <div class="col-sm-offset-2 col-sm-10">
 										        <button type="submit" class="btn btn-success" >Submit</button>

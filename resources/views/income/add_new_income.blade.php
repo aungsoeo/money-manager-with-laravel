@@ -53,7 +53,7 @@
                         <div class="form-group">
                           <label for="date" class="control-label col-sm-2">Date:</label>
                           <div class="col-sm-10">
-                            <input type="date" id="date" class="form-control income_date"  name="date" placeholder="DD/MM/YY" style="width: 500px;" />
+                            <input type="date" id="date" class="form-control"  name="date" placeholder="DD/MM/YY" style="width: 500px;" />
                           </div>
                         </div>
 										     <div class="form-group">

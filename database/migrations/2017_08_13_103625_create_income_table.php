@@ -18,7 +18,7 @@ class CreateIncomeTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('income_name');
             $table->integer('amount');
-            $tabel->date('income_date');
+            $table->date('income_date');
             $table->timestamps();
         });
          Schema::table('income', function($table) {

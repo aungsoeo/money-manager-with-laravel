@@ -29,7 +29,7 @@ class SaveController extends Controller
      */
     public function create()
     {
-        //
+        return view('save.add');
     }
 
     /**
@@ -40,7 +40,33 @@ class SaveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id=Auth::user()->id;
+        $save_name = $_POST['save_name'];
+        $amount = $_POST['amount'];
+        $save = [
+            "user_id"=>$user_id,
+            "save_name"=>$save_name,
+            "amount"=>$amount,
+            "save_date"=>$request->date
+        ];
+        $rule = [
+            "save_name"=>"required",
+            "amount"=>"required",
+            "save_date"=>"required"
+        ];
+        $validator = Validator::make($save,$rule);
+
+        if ($validator->fails())
+        {
+            $messages = $validator->messages();
+            return redirect('/save/create')
+                ->withErrors($validator);
+
+        } else
+        {
+            Save::insert($save);
+            return redirect('/save')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');
+        }
     }
 
     /**
@@ -62,7 +88,8 @@ class SaveController extends Controller
      */
     public function edit($id)
     {
-        //
+        $save = Save::find($id);
+        return view('save.edit')->with(compact('save'));
     }
 
     /**
@@ -74,7 +101,29 @@ class SaveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rule = [
+            "save_name"=>"required",
+            "amount"=>"required",
+            "date"=>"required"
+        ];
+        $validator = Validator::make($request->all(),$rule);
+
+        if ($validator->fails())
+        {
+            $messages = $validator->messages();
+            return redirect()->back()
+                ->withErrors($validator);
+
+        } else
+        {   
+            $save = Save::find($request->id);
+            $save->user_id = Auth::user()->id;
+            $save->save_name = $request->save_name;
+            $save->amount = $request->amount;
+            $save->save_date = $request->date;
+            $save->save();
+            return redirect('/save')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');
+        }
     }
 
     /**
@@ -84,7 +133,8 @@ class SaveController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $save = Save::find($id)->delete();
+        return redirect()->back()->with('message', 'ေရြွးခ်ယ္ထားေသာ ဝင္ေငြစာရင္း ဖ်က္ျပီးပါျပီ။');
     }
 }

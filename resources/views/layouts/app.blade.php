@@ -36,8 +36,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-
-
 </head>
 <body>
     <div id="app">
@@ -55,16 +53,21 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                      <img src="images/home.jpg" alt="home" width="50px" height="50px">
+                      <img src="{{URL::asset('/images/home.jpg')}}" alt="home" width="50px" height="50px">
                     </a>
-                    <a href="#" class="navbar-brand" > <strong>မဂၤလာပါ မိတ္ေဆြ</strong></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                      <li @if (Request::is('home')) class="active" @endif><a href="{{ url('home') }}">Home</a></li>
+                      <li @if (Request::is('income')) class="active" @endif><a href="{{ url('/income') }}">Income</a></li>
+                      <li @if (Request::is('outcome')) class="active" @endif><a href="{{ url('/outcome') }}">Outcome</a></li>
+                      <li @if (Request::is('save')) class="active" @endif><a href="{{ url('/save') }}">Save</a></li>
+                      <li @if (Request::is('overall')) class="active" @endif><a href="{{ url('/overall') }}">Overall</a></li>
                     </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

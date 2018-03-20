@@ -29,11 +29,11 @@ Route::get('/outcome/delete/{id}', 'OutcomeController@destroy')->name('outcome.d
 
 
 Route::get('/save','SaveController@index')->name('save.index');
-Route::get('/save/add','SaveController@create')->name('save.create');
+Route::get('/save/create','SaveController@create')->name('save.create');
 Route::post('/save','SaveController@store')->name('save.save');
 Route::get('/save/{id}/edit','SaveController@edit')->name('save.edit');
-Route::put('/save/{id}','SaveController@update')->name('save.update');
-Route::delete('/save','SaveController@destory')->name('save.destory');
+Route::post('/save/{id}','SaveController@update')->name('save.update');
+Route::get('/save/delete/{id}','SaveController@destroy')->name('save.delete');
 
 
 

@@ -45,7 +45,8 @@ class OutcomeController extends Controller
         $outcome = [
             "user_id"=>$user_id,
             "outcome_name"=>$outcome_name,
-            "amount"=>$amount
+            "amount"=>$amount,
+            "outcome_date"=>$request->date
         ];
         $rule = [
             "outcome_name"=>"required",
@@ -113,13 +114,13 @@ class OutcomeController extends Controller
 
         } else
         {   
-            $arr = [
-                    "user_id"=>Auth::user()->id,
-                    "outcome_name"=>$request->outcome_name,
-                    "amount"=>$request->amount
-                ];
-            $income = Outcome::findOrFail($id);
-            $income->fill($arr)->save();
+
+            $outcome = Outcome::find($id);
+            $outcome->user_id = Auth::user()->id;
+            $outcome->outcome_name = $request->outcome_name;
+            $outcome->amount = $request->amount;
+            $outcome->outcome_date = $request->date;
+            $outcome->save();
             return redirect('/outcome')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');
         }
     }
