@@ -37,8 +37,8 @@ Route::get('/save/delete/{id}','SaveController@destroy')->name('save.delete');
 
 
 
-Route::get('/total', function () {
-    return view('app.total');
+Route::get('/report', function () {
+    return view('report.index');
 });
 
 Auth::routes();

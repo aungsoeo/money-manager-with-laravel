@@ -61,11 +61,13 @@
                     <!-- Left Side Of Navbar -->
 
                     <ul class="nav navbar-nav">
+                    @if (Auth::check())
                       <li @if (Request::is('home')) class="active" @endif><a href="{{ url('home') }}">Home</a></li>
                       <li @if (Request::is('income')) class="active" @endif><a href="{{ url('/income') }}">Income</a></li>
                       <li @if (Request::is('outcome')) class="active" @endif><a href="{{ url('/outcome') }}">Outcome</a></li>
                       <li @if (Request::is('save')) class="active" @endif><a href="{{ url('/save') }}">Save</a></li>
-                      <li @if (Request::is('overall')) class="active" @endif><a href="{{ url('/overall') }}">Overall</a></li>
+                      <li @if (Request::is('report')) class="active" @endif><a href="{{ url('/report') }}">Overall</a></li>
+                    @endif
                     </ul>
 
 
