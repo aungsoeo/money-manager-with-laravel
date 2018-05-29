@@ -12,7 +12,11 @@ class Income extends Model
   protected $fillable = [
       'user_id',
       'income_name',
-      'amount',
+      'in_amount',
+      'outcome_name',
+      'out_amount',
+      'save_name',
+      'sav_amount',
   ];
 
   public static function deleteIncome($user_id)

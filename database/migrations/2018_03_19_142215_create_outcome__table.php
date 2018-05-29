@@ -17,7 +17,7 @@ class CreateOutcomeTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('outcome_name');
-            $table->integer('amount');
+            $table->integer('out_amount');
             $table->date('outcome_date');
             $table->timestamps();
         });

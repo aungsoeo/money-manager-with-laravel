@@ -14,7 +14,7 @@ class IncomeController extends Controller
 {
     public function index()
     { $user_id=Auth::user()->id;
-      $incomes = Income::where('user_id', '=', $user_id)->get();
+      $incomes = Income::where('user_id', '=', $user_id)->paginate('5');
       return view('income.income')->with(compact('incomes'));
     }
 
@@ -27,30 +27,40 @@ class IncomeController extends Controller
     {   
     	$user_id=Auth::user()->id;
     	$income_name = $_POST['income_name'];
-    	$amount = $_POST['amount'];
+    	$in_amount = $_POST['in_amount'];
+        $outcome_name = $_POST['outcome_name'];
+        $out_amount = $_POST['out_amount'];
+        $save_name = $_POST['save_name'];
+        $sav_amount = $_POST['sav_amount'];
         $income_date = $_POST['date'];
+
     	$income = [
     		"user_id"=>$user_id,
     		"income_name"=>$income_name,
-    		"amount"=>$amount,
+    		"in_amount"=>$in_amount,
+            "outcome_name"=>$outcome_name,
+            "out_amount"=>$out_amount,
+            "save_name"=>$save_name,
+            "sav_amount"=>$sav_amount,
             "income_date"=>$income_date
     	];
+
     	$rule = [
     		"income_name"=>"required",
-    		"amount"=>"required"
+    		"in_amount"=>"required"
     	];
     	$validator = Validator::make($income,$rule);
 
     	if ($validator->fails())
     	{
 	        $messages = $validator->messages();
-	        return redirect('/addincome')
+	        return redirect()->back()
 	            ->withErrors($validator);
 
 	    } else
 	    {
     		Income::insert($income);
-	        return redirect('/income')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');
+	        return redirect('/home')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');
 	    }
 
     }
@@ -65,14 +75,14 @@ class IncomeController extends Controller
     {   
         $rule = [
             "income_name"=>"required",
-            "amount"=>"required"
+            "in_amount"=>"required"
         ];
         $validator = Validator::make($request->all(),$rule);
 
         if ($validator->fails())
         {
             $messages = $validator->messages();
-            return redirect('/addincome')
+            return redirect()->back()
                 ->withErrors($validator);
 
         } else
@@ -80,10 +90,14 @@ class IncomeController extends Controller
             $income = Income::find($request->id);
             $income->user_id = Auth::user()->id;
             $income->income_name = $request->income_name;
-            $income->amount = $request->amount;
+            $income->in_amount = $request->in_amount;
+            $income->outcome_name = $request->outcome_name;
+            $income->out_amount = $request->out_amount;
+            $income->save_name = $request->save_name;
+            $income->sav_amount = $request->sav_amount;
             $income->income_date = $request->date;
             $income->save();
-            return redirect('/income')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');
+            return redirect('/home')->with('success','ဝင္ေငြစာရင္းအသစ္ ျပင္ဆင္မွုေအာင္ျမင္ပါသည္။');
         }
 
     }

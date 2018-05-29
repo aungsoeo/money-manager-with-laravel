@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Report;
+use App\Save;
+use App\Income;
+use App\Outcome;
+use Auth;
+use DB;
 
 class ReportController extends Controller
 {
@@ -13,7 +19,9 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        $user_id=Auth::user()->id;
+        $reports = Income::where('user_id', '=', $user_id)->paginate('5');
+        return view('report.index')->with(compact('reports'));
     }
 
     /**

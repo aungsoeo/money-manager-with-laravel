@@ -17,7 +17,9 @@ class CreateIncomeTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('income_name');
-            $table->integer('amount');
+            $table->integer('in_amount');
+            $table->integer('out_amount');
+            $table->integer('sav_amount');
             $table->date('income_date');
             $table->timestamps();
         });

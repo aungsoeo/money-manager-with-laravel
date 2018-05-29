@@ -17,7 +17,7 @@ class CreateSavesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('save_name');
-            $table->integer('amount');
+            $table->integer('sav_amount');
             $table->date('save_date');
             $table->timestamps();
         });

@@ -30,19 +30,6 @@
               </header>
               <!-- END #fh5co-header -->
               <div class="container-fluid">
-                  <div >
-                      <a href="{{ url('/save/create')}}">
-                        <button type="button" name="button" class="btn btn-success">စာရင္းအသစ္ထည့္မယ္</button>
-                      </a>
-                  </div><br>
-                    <div class="clearfix visible-xs-block"></div>
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success success-msg">
-                        <p>{{ $message }}</p>
-                    </div>
-                    @endif
-                  </div>
-
                     <table class="table table-bordered">
                       <thead >
                         <tr>
@@ -50,23 +37,23 @@
                           <th>ေန့စြဲ</th>
                           <th>စုေငြ အမည္</th>
                           <th>ပမာဏ</th>
-                          <th style="width:240px;">Action</th>
                         </tr>
                       </thead>
+                       @if(sizeof($saves)==0)
+                        <tbody>
+                            <tr>
+                              <td colspan="7" align="center"  style="color: red;">ထည့္သြင္းထားေသာအခ်က္အလက္မ်ားမရွိေသးပါ</td>  
+                            </tr>
+                        </tbody>
+                      @else
                       <tbody>
-                        @foreach($saves as $save)
+                        @foreach($saves as  $index =>$save)
                         <tr>
-                          <th scope="row">{{$save->id}}</th>
+                          <th scope="row">{{$index+1}}</th>
                           <td>{{ Carbon\Carbon::parse($save->save_date)->format('d-m-Y') }}</td>
                           <td>{{$save->save_name}}</td>
-                          <td>{{number_format($save->amount)}}(က်ပ္)</td>
-                          <td>
-                             <a href="{{ route('save.delete', $save->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
-                            <a href="{{ route('save.edit', $save->id) }}">
-                              <button type="button" name="button" class="btn btn-small btn-info">Edit</button>
-                            </a>
-
-                          </td>
+                          <td>{{number_format($save->sav_amount)}}(က်ပ္)</td>
+                          
                         </tr>
                         @endforeach
                         <tr>
@@ -77,14 +64,16 @@
                                   $total=0;
                                 foreach ($saves as $save) {
 
-                                    $amount = $save->amount;
+                                    $amount = $save->sav_amount;
                                     $total = $total + $amount;
                                 }
                                 echo number_format($total);
                               ?>(က်ပ္)</td>
                         </tr>
                       </tbody>
+                      @endif
                     </table>
+                    {{ $saves->links() }}
                     <div >
                       <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">ေနာက္သို့</button></a>
                     </div><br>

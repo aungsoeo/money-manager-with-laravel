@@ -55,7 +55,7 @@
 										    <div class="form-group">
 										      <label class="control-label col-sm-2" for="amount">Amount:</label>
 										      <div class="col-sm-10">
-										        <input type="number" class="form-control" id="amount" placeholder="Enter Amount" name="amount" style="width: 500px;" value="{{$outcome->amount}}">
+										        <input type="number" class="form-control" id="amount" placeholder="Enter Amount" name="amount" style="width: 500px;" value="{{$outcome->out_amount}}">
 										      </div>
 										    </div>
                         <div class="form-group">

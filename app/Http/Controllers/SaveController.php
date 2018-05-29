@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Save;
+use App\Income;
 use Auth;
 use App\User;
 use Validator;
@@ -18,7 +18,7 @@ class SaveController extends Controller
     public function index()
     {
         $user_id=Auth::user()->id;
-        $saves = Save::where('user_id', '=', $user_id)->get();
+        $saves = Income::where('user_id', '=', $user_id)->paginate('5');
         return view('save.index')->with(compact('saves'));
     }
 
@@ -46,12 +46,12 @@ class SaveController extends Controller
         $save = [
             "user_id"=>$user_id,
             "save_name"=>$save_name,
-            "amount"=>$amount,
+            "sav_amount"=>$amount,
             "save_date"=>$request->date
         ];
         $rule = [
             "save_name"=>"required",
-            "amount"=>"required",
+            "sav_amount"=>"required",
             "save_date"=>"required"
         ];
         $validator = Validator::make($save,$rule);
@@ -103,7 +103,7 @@ class SaveController extends Controller
     {
         $rule = [
             "save_name"=>"required",
-            "amount"=>"required",
+            "sav_amount"=>"required",
             "date"=>"required"
         ];
         $validator = Validator::make($request->all(),$rule);
@@ -119,7 +119,7 @@ class SaveController extends Controller
             $save = Save::find($request->id);
             $save->user_id = Auth::user()->id;
             $save->save_name = $request->save_name;
-            $save->amount = $request->amount;
+            $save->sav_amount = $request->amount;
             $save->save_date = $request->date;
             $save->save();
             return redirect('/save')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');

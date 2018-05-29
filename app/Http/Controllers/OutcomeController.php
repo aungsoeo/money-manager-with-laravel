@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Outcome;
+use App\Income;
 use Auth;
 use Validator;
 
@@ -17,7 +17,7 @@ class OutcomeController extends Controller
     public function index()
     {
         $user_id=Auth::user()->id;
-        $outcomes = Outcome::where('user_id', '=', $user_id)->get();
+        $outcomes = Income::where('user_id', '=', $user_id)->paginate('5');
         return view('outcome.outcome')->with(compact('outcomes'));
     }
 
@@ -45,12 +45,12 @@ class OutcomeController extends Controller
         $outcome = [
             "user_id"=>$user_id,
             "outcome_name"=>$outcome_name,
-            "amount"=>$amount,
+            "out_amount"=>$amount,
             "outcome_date"=>$request->date
         ];
         $rule = [
             "outcome_name"=>"required",
-            "amount"=>"required"
+            "out_amount"=>"required"
         ];
         $validator = Validator::make($outcome,$rule);
 
@@ -109,7 +109,7 @@ class OutcomeController extends Controller
         if ($validator->fails())
         {
             $messages = $validator->messages();
-            return redirect('/outcome')
+            return redirect()->back()
                 ->withErrors($validator);
 
         } else
@@ -118,7 +118,7 @@ class OutcomeController extends Controller
             $outcome = Outcome::find($id);
             $outcome->user_id = Auth::user()->id;
             $outcome->outcome_name = $request->outcome_name;
-            $outcome->amount = $request->amount;
+            $outcome->out_amount = $request->amount;
             $outcome->outcome_date = $request->date;
             $outcome->save();
             return redirect('/outcome')->with('success','ဝင္ေငြစာရင္းအသစ္ ထည့္သြင္းမွုေအာင္ျမင္ပါသည္။');

@@ -10,6 +10,6 @@ class Outcome extends Model
 	protected $fillable = [
 		'user_id',
 		'outcome_name',
-		'amount',
+		'out_amount',
 	];
 }

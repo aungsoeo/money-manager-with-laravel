@@ -45,9 +45,33 @@
 										      </div>
 										    </div>
 										    <div class="form-group">
-										      <label class="control-label col-sm-2" for="amount">Amount:</label>
+										      <label class="control-label col-sm-2" for="amount">Income Amount:</label>
 										      <div class="col-sm-10">
-										        <input type="number" class="form-control" id="amount" placeholder="Enter Amount" name="amount" style="width: 500px;">
+										        <input type="number" class="form-control" id="in_amount" placeholder="Enter Amount" name="in_amount" style="width: 500px;">
+										      </div>
+                        </div>
+                         <div class="form-group">
+                          <label class="control-label col-sm-2" for="save_name">Save Name:</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="save_name" placeholder="Enter Save Name" name="save_name" style="width: 500px;">
+                          </div>
+                        </div>
+                        <div class="form-group">
+										      <label class="control-label col-sm-2" for="amount">Save Amount:</label>
+										      <div class="col-sm-10">
+										        <input type="number" class="form-control" id="sav_amount" name="sav_amount" style="width: 500px;">
+										      </div>
+                        </div>
+                         <div class="form-group">
+                          <label class="control-label col-sm-2" for="income_name">Outcome Name:</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="outcome_name" placeholder="Enter Outcome Name" name="outcome_name" style="width: 500px;">
+                          </div>
+                        </div>
+                        <div class="form-group">
+										      <label class="control-label col-sm-2" for="amount">OutCome Amount:</label>
+										      <div class="col-sm-10">
+										        <input type="number" class="form-control" id="out_amount"  name="out_amount" style="width: 500px;">
 										      </div>
                         </div>
                         <div class="form-group">
@@ -72,9 +96,26 @@
       </div>
   </div>
 <script type="text/javascript">
-    $('.date').datepicker({  
-       format: 'mm-dd-yyyy'
-     });  
+  $(document).ready(function(){
+      update_amounts();
+       $('#in_amount').change(function() {
+          update_amounts();
+      });
+
+      $('#sav_amount').change(function() {
+          update_amounts();
+      });
+  });
+
+  function update_amounts()
+  {
+
+      var income = $('#in_amount').val();
+      var save = $('#sav_amount').val();
+      var outcome  = (income-save);
+      $('#out_amount').val(outcome);
+  
+  }
 </script>  
 @include('layouts.footer')
 

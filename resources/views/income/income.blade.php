@@ -26,36 +26,34 @@
                 <!-- END #fh5co-header -->
 
                 <div class="container-fluid">
-                  <div >
-                      <a href="{{ url('/addincome')}}">
-                        <button type="button" name="button" class="btn btn-success">စာရင္းအသစ္ထည့္မယ္</button>
-                      </a>
-                  </div><br>
-                    <div class="clearfix visible-xs-block"></div>
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success success-msg">
-                        <p>{{ $message }}</p>
-                    </div>
-                    @endif
-                  </div>
-
                     <table class="table table-bordered">
                       <thead >
                         <tr>
                           <th>စဥ္</th>
                           <th>ေန့စြဲ</th>
                           <th>ဝင္ေငြ အမည္</th>
-                          <th>ပမာဏ</th>
+                          <th>ဝင္ေငြ</th>
+                          <th>ထြက္ေငြ</th>
+                          <th>စုေငြ</th>
                           <th style="width:240px;">Action</th>
                         </tr>
                       </thead>
+                      @if(sizeof($incomes) == 0)
+                        <tbody>
+                            <tr>
+                              <td colspan="7" align="center" style="color: red;">ထည့္သြင္းထားေသာအခ်က္အလက္မ်ားမရွိေသးပါ</td>  
+                            </tr>
+                        </tbody>
+                      @else
                       <tbody>
-                        @foreach($incomes as $income)
+                        @foreach($incomes as  $index =>$income)
                         <tr>
-                          <th scope="row">{{$income->id}}</th>
+                          <th scope="row">{{$index+1}}</th>
                           <td>{{ Carbon\Carbon::parse($income->income_date)->format('d-m-Y') }}</td>
                           <td>{{$income->income_name}}</td>
-                          <td>{{number_format($income->amount)}}(က်ပ္)</td>
+                          <td>{{number_format($income->in_amount)}}(က်ပ္)</td>
+                          <td>{{number_format($income->out_amount)}}(က်ပ္)</td>
+                          <td>{{number_format($income->sav_amount)}}(က်ပ္)</td>
                           <td>
                             <a href="{{ route('income.delete', $income->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
                             <a href="{{ route('income.edit', $income->id) }}">
@@ -65,22 +63,46 @@
                           </td>
                         </tr>
                         @endforeach
+    
                         <tr>
                           <th scope="row"></th>
                           <td></td>
                           <td colspan="1"><b>စုစုေပါင္း</b></td>
-                          <td><?php
-                                  $total=0;
-                                foreach ($incomes as $income) {
+                          <?php
+                                $in_total=0;
+                                $out_total=0;
+                                $sav_total=0;
+                                foreach ($incomes as $total) {
+                                    $in_amount = $total->in_amount;
+                                    $in_total = $in_total + $in_amount;
 
-                                    $amount = $income->amount;
-                                    $total = $total + $amount;
+                                    $out_amount = $total->out_amount;
+                                    $out_total = $out_total + $out_amount;
+
+                                    $sav_amount = $total->sav_amount;
+                                    $sav_total = $sav_total + $sav_amount;
                                 }
-                                echo number_format($total);
-                              ?>(က်ပ္)</td>
+                                echo "<td>";
+                                echo number_format($in_total).'(က်ပ္)';
+                                echo "</td>";
+
+                                echo "<td>";
+                                echo number_format($out_total).'(က်ပ္)';
+                                echo "</td>";
+
+                                echo "<td>";
+                                echo number_format($sav_total).'(က်ပ္)';
+                                echo "</td>";
+                            ?>
+                            
                         </tr>
                       </tbody>
+                      @endif
                     </table>
+                     {{ $incomes->links() }}
+                    
+
+                    <br><br>
                     <div >
                       <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">ေနာက္သို့</button></a>
                     </div><br>
@@ -94,9 +116,3 @@
   </div>
 
 @endsection
-<script>
-setTimeout(() => {
-  $('.success-msg').hide();
-}, 5000);
-  
-</script>
