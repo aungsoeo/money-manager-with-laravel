@@ -40,13 +40,12 @@
             "php artisan optimize",
             "php artisan clear-compiled",
             "php artisan optimize",
-            "php artisan migrate",
             "chmod -R 777 public/"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize",
-             "php artisan migrate",
+            "heroku run php artisan migrate",
         ]
     },
     "config": {
