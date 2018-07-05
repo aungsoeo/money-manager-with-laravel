@@ -40,13 +40,12 @@
             "php artisan optimize",
             "php artisan clear-compiled",
             "php artisan optimize",
-             "php artisan migrate --seed",
+            "php artisan migrate --force",
             "chmod -R 777 public/"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize",
-            "php artisan migrate --seed"
+            "php artisan optimize"
         ]
     },
     "config": {
