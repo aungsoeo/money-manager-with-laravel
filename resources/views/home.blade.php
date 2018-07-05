@@ -38,14 +38,14 @@
 
                   <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
                     <figure>
-                      <a href="{{ url('/income') }}"><img src="{{URL::asset('/images/income.gif')}}" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
+                      <a href="{{ url('/income') }}"><img src="http://private-money-manager.herokuapp.com/images/income.gif" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
                     </figure>
                     <span class="fh5co-meta"><a href="{{ url('/income') }}">ဝင္ေငြ</a></span>
                   </article>
                         <div class="clearfix visible-xs-block"></div>
                   <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
                     <figure>
-                      <a href="{{ url('/outcome') }}"><img src="{{URL::asset('/images/out.jpg')}}" style="width:500px; height:200px; !important" alt="incmome" class="img-responsive"></a>
+                      <a href="{{ url('/outcome') }}"><img src="http://private-money-manager.herokuapp.com/images/out.jpg" style="width:500px; height:200px; !important" alt="incmome" class="img-responsive"></a>
                     </figure>
                     <span class="fh5co-meta"><a href="{{ url('/outcome') }}">ထြက္ေငြ</a></span>
                   </article>
@@ -54,7 +54,7 @@
 
                   <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
                     <figure>
-                      <a href="{{ url('/save') }}"><img src="{{URL::asset('/images/savemoney.jpg')}}" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
+                      <a href="{{ url('/save') }}"><img src="http://private-money-manager.herokuapp.com/images/savemoney.jpg" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
                     </figure>
                     <span class="fh5co-meta"><a href="{{ url('/save') }}">ပိုက္ပိုက္စုမယ္</a></span>
                   </article>
@@ -62,7 +62,7 @@
                         <div class="clearfix visible-xs-block"></div>
                   <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
                     <figure>
-                      <a href="{{ url('/report') }}"><img src="{{URL::asset('/images/outcome.png')}}" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
+                      <a href="{{ url('/report') }}"><img src="http://private-money-manager.herokuapp.com/images/outcome.png" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
                     </figure>
                     <span class="fh5co-meta"><a href="{{ url('/report') }}">စာရင္းၾကည့္မယ္</a></span>
 
