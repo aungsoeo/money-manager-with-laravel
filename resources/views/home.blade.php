@@ -38,7 +38,7 @@
 
                   <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
                     <figure>
-                      <a href="{{ url('/income') }}"><img src="http://private-money-manager.herokuapp.com/images/income.gif" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
+                      <a href="{{ url('/income') }}"><img src="{{url('images/income.gif')}}" style="width:500px; height:200px; !important" alt="Image" class="img-responsive"></a>
                     </figure>
                     <span class="fh5co-meta"><a href="{{ url('/income') }}">ဝင္ေငြ</a></span>
                   </article>
