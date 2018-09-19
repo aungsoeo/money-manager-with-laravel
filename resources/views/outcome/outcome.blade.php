@@ -50,7 +50,7 @@
                         @foreach($outcomes as  $index =>$outcome)
                         <tr>
                           <th scope="row">{{$index+1}}</th>
-                          <td>{{ Carbon\Carbon::parse($outcome->outcome_date)->format('d-m-Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($income->income_date)->format('d-m-Y') }}</td>
                           <td>{{$outcome->outcome_name}}</td>
                           <td>{{number_format($outcome->out_amount)}}(က်ပ္)</td>
                         </tr>
