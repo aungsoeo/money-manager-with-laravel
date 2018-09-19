@@ -40,7 +40,7 @@
                         @foreach($reports as $index =>$r)
                         <tr>
                           <th scope="row">{{$index+1}}</th>
-                          <td>{{ Carbon\Carbon::parse($r->r_date)->format('d-m-Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($r->income_date)->format('d-m-Y') }}</td>
                           <td>{{number_format($r->in_amount)}}(က်ပ္)</td>
                           <td>{{number_format($r->out_amount)}}(က်ပ္)</td>
                           <td>{{number_format($r->sav_amount)}}(က်ပ္)</td>
