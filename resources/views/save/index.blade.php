@@ -50,7 +50,7 @@
                         @foreach($saves as  $index =>$save)
                         <tr>
                           <th scope="row">{{$index+1}}</th>
-                          <td>{{ Carbon\Carbon::parse($save->save_date)->format('d-m-Y') }}</td>
+                          <td>{{ Carbon\Carbon::parse($save->income_date)->format('d-m-Y') }}</td>
                           <td>{{$save->save_name}}</td>
                           <td>{{number_format($save->sav_amount)}}(က်ပ္)</td>
                           
