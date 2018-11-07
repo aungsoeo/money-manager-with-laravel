@@ -20,7 +20,7 @@ class ReportController extends Controller
     public function index()
     {
         $user_id=Auth::user()->id;
-        $reports = Income::where('user_id', '=', $user_id)->paginate('5');
+        $reports = Income::where('user_id', '=', $user_id)->paginate('10');
         return view('report.index')->with(compact('reports'));
     }
 
