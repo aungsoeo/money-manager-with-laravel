@@ -17,7 +17,7 @@ class OutcomeController extends Controller
     public function index()
     {
         $user_id=Auth::user()->id;
-        $outcomes = Income::where('user_id', '=', $user_id)->paginate('5');
+        $outcomes = Income::where('user_id', '=', $user_id)->paginate('10');
         return view('outcome.outcome')->with(compact('outcomes'));
     }
 
