@@ -10,7 +10,7 @@
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-lg-12 col-md-12 text-center">
-                        <h1 id="fh5co-logo"><sup>$$</sup>စာရင္းေပါငးခ်ဳပ္<sup>$$</sup></h1>
+                        <h1 id="fh5co-logo"><sup>$$</sup>စာရင္းေပါင္းခ်ဳပ္<sup>$$</sup></h1>
                       </div>
                     </div>
                   </div>
