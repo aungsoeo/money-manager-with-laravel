@@ -12,10 +12,38 @@ use Validator;
 
 class IncomeController extends Controller
 {
-    public function index()
-    { $user_id=Auth::user()->id;
-      $incomes = Income::where('user_id', '=', $user_id)->orderBy('created_at','asc')->paginate('6');
-      return view('income.income')->with(compact('incomes'));
+    public function index(Request $request)
+    {   
+        $user_id=Auth::user()->id;
+        $incomes = Income::where('user_id', '=', $user_id);
+
+        if($request->keyword){
+            $incomes = $incomes->where('income_name','LIKE','%'.$request->keyword.'%');
+        }
+        $from = $request->from;
+        $to = $request->to;
+
+        if($from!='' && $to!=''){    
+            if ($from < $to) {
+                $incomes = $incomes->whereBetween('income_date',[$from,$to]);
+            }
+
+            if($from==$to){    
+                $incomes = $incomes->where('income_date','=',$to);
+            }
+        }
+
+        if($from!='' && $to==''){    
+            $incomes = $incomes->where('income_date','>=',$from);
+        }
+
+        if($from=='' && $to!=''){    
+            $incomes = $incomes->where('income_date','<=',$to);
+        }
+
+        $incomes = $incomes->orderBy('income_date','asc')->paginate('12');
+        // dd($incomes);
+        return view('income.income')->with(compact('incomes'));
     }
 
     public function add()

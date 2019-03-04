@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function () {
 
-	Route::get('/income', 'IncomeController@index');
+	Route::get('/income', 'IncomeController@index')->name('income.index');
 	Route::get('/addincome','IncomeController@add');
 	Route::post('/addincome','IncomeController@store');
 	Route::get('/delete/{$id}','IncomeController@destroy');

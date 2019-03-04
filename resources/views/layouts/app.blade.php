@@ -25,6 +25,8 @@
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
+    <link href="{{ asset('dcalendar.picker.css') }}" rel="stylesheet" type="text/css">
+
      <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
@@ -35,10 +37,9 @@
     <!-- Bootstrap -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- Waypoints -->
-    <script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
+    {{-- <script src="{{asset('js/jquery.waypoints.min.js')}}"></script> --}}
     <!-- Main JS -->
-    <script src="{{asset('js/main.js')}}"></script>
-
+    {{-- <script src="{{asset('js/main.js')}}"></script> --}}
 
     <!-- add js file from file -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
