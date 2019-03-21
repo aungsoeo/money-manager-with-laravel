@@ -11,7 +11,7 @@
 
                   <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">
-                      <h1 id="fh5co-logo"><sup>$$</sup>ဝင္ေငြထြက္ေငြ ဆန္းစစ္မယ္ <sup>$$</sup></h1>
+                      <h1 id="fh5co-logo"><sup>$$</sup>ဝင္ေငြထြက္ေငြ ဆန္းစစ္မယ္  Test<sup>$$</sup></h1>
                     </div>
 
                   </div>
