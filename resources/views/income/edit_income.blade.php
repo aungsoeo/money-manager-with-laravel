@@ -95,7 +95,7 @@
 										  </form>
 										</div>
                     <div align="right" style="margin-right: 200px;">
-                      <a href="{{url('/income')}}"><button type="button" name="button" class="btn btn-primary">ေနာက္သို့</button></a>
+                      <a href="{{url('/income')}}"><button type="button" name="button" class="btn btn-primary">နောက်သို့</button></a>
                     </div><br>
                   </div>
               </div>

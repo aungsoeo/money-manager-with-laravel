@@ -41,7 +41,7 @@
                     <thead >
                       <tr>
                         <th>စဥ္</th>
-                        <th>ေန့စြဲ</th>
+                        <th>နေ့စွဲ</th>
                         <th>ဝင္ေငြ အမည္</th>
                         <th>ဝင္ေငြ</th>
                         <th>ထြက္ေငြ</th>
@@ -62,9 +62,9 @@
                         <th scope="row">{{$index+1}}</th>
                         <td>{{ Carbon\Carbon::parse($income->income_date)->format('d-m-Y') }}</td>
                         <td>{{$income->income_name}}</td>
-                        <td>{{number_format($income->in_amount)}}(က်ပ္)</td>
-                        <td>{{number_format($income->out_amount)}}(က်ပ္)</td>
-                        <td>{{number_format($income->sav_amount)}}(က်ပ္)</td>
+                        <td>{{number_format($income->in_amount)}}(ကျပ်)</td>
+                        <td>{{number_format($income->out_amount)}}(ကျပ်)</td>
+                        <td>{{number_format($income->sav_amount)}}(ကျပ်)</td>
                         <td>
                           <a href="{{ route('income.delete', $income->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
                           <a href="{{ route('income.edit', $income->id) }}">
@@ -94,15 +94,15 @@
                                   $sav_total = $sav_total + $sav_amount;
                               }
                               echo "<td>";
-                              echo number_format($in_total).'(က်ပ္)';
+                              echo number_format($in_total).'(ကျပ်)';
                               echo "</td>";
 
                               echo "<td>";
-                              echo number_format($out_total).'(က်ပ္)';
+                              echo number_format($out_total).'(ကျပ်)';
                               echo "</td>";
 
                               echo "<td>";
-                              echo number_format($sav_total).'(က်ပ္)';
+                              echo number_format($sav_total).'(ကျပ်)';
                               echo "</td>";
                           ?>
                           
@@ -115,7 +115,7 @@
 
                   <br><br>
                   <div >
-                    <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">ေနာက္သို့</button></a>
+                    <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">နောက်သို့</button></a>
                   </div><br>
                 </div>
               </div>
