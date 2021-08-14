@@ -34,7 +34,7 @@
                       <thead >
                         <tr>
                           <th>စဥ္</th>
-                          <th>ေန့စြဲ</th>
+                          <th>နေ့စွဲ</th>
                           <th>စုေငြ အမည္</th>
                           <th>ပမာဏ</th>
                         </tr>
@@ -75,7 +75,7 @@
                     </table>
                     {{ $saves->links() }}
                     <div >
-                      <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">ေနာက္သို့</button></a>
+                      <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">နောက်သို့</button></a>
                     </div><br>
                   </div>
                 </div>

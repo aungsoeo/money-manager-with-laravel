@@ -22,7 +22,7 @@
                       <thead >
                         <tr>
                           <th>စဥ္</th>
-                          <th>ေန့စြဲ</th>
+                          <th>နေ့စွဲ</th>
                           <th>ဝင္ေငြ</th>
                           <th>ထြက္ေငြ</th>
                           <th>စုေငြ</th>
@@ -41,9 +41,9 @@
                         <tr>
                           <th scope="row">{{$index+1}}</th>
                           <td>{{ Carbon\Carbon::parse($r->income_date)->format('d-m-Y') }}</td>
-                          <td>{{number_format($r->in_amount)}}(က်ပ္)</td>
-                          <td>{{number_format($r->out_amount)}}(က်ပ္)</td>
-                          <td>{{number_format($r->sav_amount)}}(က်ပ္)</td>
+                          <td>{{number_format($r->in_amount)}}(ကျပ်)</td>
+                          <td>{{number_format($r->out_amount)}}(ကျပ်)</td>
+                          <td>{{number_format($r->sav_amount)}}(ကျပ်)</td>
                         </tr>
                         @endforeach
     
@@ -65,15 +65,15 @@
                                     $sav_total = $sav_total + $sav_amount;
                                 }
                                 echo "<td>";
-                                echo number_format($in_total).'(က်ပ္)';
+                                echo number_format($in_total).'(ကျပ်)';
                                 echo "</td>";
 
                                 echo "<td>";
-                                echo number_format($out_total).'(က်ပ္)';
+                                echo number_format($out_total).'(ကျပ်)';
                                 echo "</td>";
 
                                 echo "<td>";
-                                echo number_format($sav_total).'(က်ပ္)';
+                                echo number_format($sav_total).'(ကျပ်)';
                                 echo "</td>";
                             ?>
                             
@@ -83,7 +83,7 @@
                     </table>
                     {{ $reports->links() }}
                     <div >
-                      <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">ေနာက္သို့</button></a>
+                      <a href="{{url('/home')}}"><button type="button" name="button" class="btn btn-success">နောက်သို့</button></a>
                     </div><br>
                   </div>
                 </div>
