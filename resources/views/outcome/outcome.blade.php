@@ -52,14 +52,14 @@
                           <th scope="row">{{$index+1}}</th>
                           <td>{{ Carbon\Carbon::parse($outcome->income_date)->format('d-m-Y') }}</td>
                           <td>{{$outcome->outcome_name}}</td>
-                          <td>{{number_format($outcome->out_amount)}}(က်ပ္)</td>
+                          <td style="text-align: right;">{{number_format($outcome->out_amount)}}</td>
                         </tr>
                         @endforeach
                         <tr>
                           <th scope="row"></th>
                           <td></td>
                           <td colspan="1"><b>စုစုေပါင္း</b></td>
-                          <td><?php
+                          <td style="text-align: right;"><?php
                                   $total=0;
                                 foreach ($outcomes as $outcome) {
 
@@ -67,7 +67,7 @@
                                     $total = $total + $amount;
                                 }
                                 echo number_format($total);
-                              ?>(က်ပ္)</td>
+                              ?></td>
                         </tr>
                       </tbody>
                       @endif

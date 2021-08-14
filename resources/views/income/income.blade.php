@@ -62,9 +62,9 @@
                         <th scope="row">{{$index+1}}</th>
                         <td>{{ Carbon\Carbon::parse($income->income_date)->format('d-m-Y') }}</td>
                         <td>{{$income->income_name}}</td>
-                        <td>{{number_format($income->in_amount)}}(ကျပ်)</td>
-                        <td>{{number_format($income->out_amount)}}(ကျပ်)</td>
-                        <td>{{number_format($income->sav_amount)}}(ကျပ်)</td>
+                        <td style="text-align: right;">{{number_format($income->in_amount)}}</td>
+                        <td style="text-align: right;">{{number_format($income->out_amount)}}</td>
+                        <td style="text-align: right;">{{number_format($income->sav_amount)}}</td>
                         <td>
                           <a href="{{ route('income.delete', $income->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
                           <a href="{{ route('income.edit', $income->id) }}">
@@ -93,16 +93,16 @@
                                   $sav_amount = $total->sav_amount;
                                   $sav_total = $sav_total + $sav_amount;
                               }
-                              echo "<td>";
-                              echo number_format($in_total).'(ကျပ်)';
+                              echo '<td style="text-align: right;">';
+                              echo number_format($in_total);
                               echo "</td>";
 
-                              echo "<td>";
-                              echo number_format($out_total).'(ကျပ်)';
+                              echo '<td style="text-align: right;">';
+                              echo number_format($out_total);
                               echo "</td>";
 
-                              echo "<td>";
-                              echo number_format($sav_total).'(ကျပ်)';
+                              echo '<td style="text-align: right;">';
+                              echo number_format($sav_total);
                               echo "</td>";
                           ?>
                           

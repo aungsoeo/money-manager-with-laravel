@@ -41,9 +41,9 @@
                         <tr>
                           <th scope="row">{{$index+1}}</th>
                           <td>{{ Carbon\Carbon::parse($r->income_date)->format('d-m-Y') }}</td>
-                          <td>{{number_format($r->in_amount)}}(ကျပ်)</td>
-                          <td>{{number_format($r->out_amount)}}(ကျပ်)</td>
-                          <td>{{number_format($r->sav_amount)}}(ကျပ်)</td>
+                          <td style="text-align: right;">{{number_format($r->in_amount)}}</td>
+                          <td style="text-align: right;">{{number_format($r->out_amount)}}</td>
+                          <td style="text-align: right;">{{number_format($r->sav_amount)}}</td>
                         </tr>
                         @endforeach
     
@@ -64,16 +64,16 @@
                                     $sav_amount = $total->sav_amount;
                                     $sav_total = $sav_total + $sav_amount;
                                 }
-                                echo "<td>";
-                                echo number_format($in_total).'(ကျပ်)';
+                                echo '<td style="text-align: right;">';
+                                echo number_format($in_total);
                                 echo "</td>";
 
-                                echo "<td>";
-                                echo number_format($out_total).'(ကျပ်)';
+                                echo '<td style="text-align: right;">';
+                                echo number_format($out_total);
                                 echo "</td>";
 
-                                echo "<td>";
-                                echo number_format($sav_total).'(ကျပ်)';
+                                echo '<td style="text-align: right;">';
+                                echo number_format($sav_total);
                                 echo "</td>";
                             ?>
                             
